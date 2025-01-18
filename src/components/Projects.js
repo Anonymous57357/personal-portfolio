@@ -7,37 +7,59 @@ import colorSharp2 from "../assets/img/color-sharp2.png";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 
+import {
+  DEVTINDER_GITHUB_LINK,
+  NETFLIX_GEMINI,
+  YOUTUBE_APP_GITHUB_LINK,
+  SWIGGY_STORE_GITHUB_LINK,
+} from "./constants";
+
+
+const getProjectDetails = (githubUrl) => {
+  if (githubUrl === DEVTINDER_GITHUB_LINK) {
+    return {
+      title: "DevTinder",
+      description: "A platform for developers to connect and collaborate.",
+    };
+  } else if (githubUrl === NETFLIX_GEMINI) {
+    return {
+      title: "Netflix Gemini",
+      description: "A Netflix clone with a responsive UI and real-time data.",
+    };
+  } else if (githubUrl === YOUTUBE_APP_GITHUB_LINK) {
+    return {
+      title: "YouTube App",
+      description: "A clone of YouTube with search and video playback features.",
+    };
+  } else if (githubUrl === SWIGGY_STORE_GITHUB_LINK) {
+    return {
+      title: "Swiggy Store",
+      description: "An online food delivery application inspired by Swiggy.",
+    };
+  }
+  return {
+    title: "Unknown Project",
+    description: "Description not available.",
+  };
+};
+
 export const Projects = () => {
   const projects = [
     {
-      title: "Business Startup",
-      description: "Design & Development",
       imgUrl: projImg1,
+      githubUrl: DEVTINDER_GITHUB_LINK,
     },
     {
-      title: "Business Startup",
-      description: "Design & Development",
       imgUrl: projImg2,
+      githubUrl: NETFLIX_GEMINI,
     },
     {
-      title: "Business Startup",
-      description: "Design & Development",
       imgUrl: projImg3,
+      githubUrl: YOUTUBE_APP_GITHUB_LINK,
     },
     {
-      title: "Business Startup",
-      description: "Design & Development",
       imgUrl: projImg1,
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg2,
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg3,
+      githubUrl: SWIGGY_STORE_GITHUB_LINK,
     },
   ];
 
@@ -55,11 +77,8 @@ export const Projects = () => {
                 >
                   <h2>Projects</h2>
                   <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
+                    Explore some of the projects I have worked on, showcasing my
+                    skills in design, development, and implementation.
                   </p>
                   <Tab.Container id="projects-tabs" defaultActiveKey="first">
                     <Nav
@@ -86,7 +105,18 @@ export const Projects = () => {
                       <Tab.Pane eventKey="first">
                         <Row>
                           {projects.map((project, index) => {
-                            return <ProjectCard key={index} {...project} />;
+                            const { title, description } = getProjectDetails(
+                              project.githubUrl
+                            );
+                            return (
+                              <ProjectCard
+                                key={index}
+                                title={title}
+                                description={description}
+                                imgUrl={project.imgUrl}
+                                githubUrl={project.githubUrl}
+                              />
+                            );
                           })}
                         </Row>
                       </Tab.Pane>

@@ -636,3 +636,18 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   letter-spacing: 0.5px;
   margin-top: 20px;
 }
+/* github-style */
+
+.github-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ffe066;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.github-link:hover {
+  color: #ffcc33;
+  text-decoration: underline;
+}
