@@ -9,38 +9,48 @@ import TrackVisibility from "react-on-screen";
 
 import {
   DEVTINDER_GITHUB_LINK,
+  SWIGGY_STORE_GITHUB_LINK,
   NETFLIX_GEMINI,
   YOUTUBE_APP_GITHUB_LINK,
-  SWIGGY_STORE_GITHUB_LINK,
+  NETFLIX_GEMINI_LIVE_URL,
+  YOUTUBE_APP_LIVE_URL,
 } from "./constants";
 
-
+// Generate title, description, and live URL based on GitHub URL
 const getProjectDetails = (githubUrl) => {
-  if (githubUrl === DEVTINDER_GITHUB_LINK) {
-    return {
-      title: "DevTinder",
-      description: "A platform for developers to connect and collaborate.",
-    };
-  } else if (githubUrl === NETFLIX_GEMINI) {
-    return {
-      title: "Netflix Gemini",
-      description: "A Netflix clone with a responsive UI and real-time data.",
-    };
-  } else if (githubUrl === YOUTUBE_APP_GITHUB_LINK) {
-    return {
-      title: "YouTube App",
-      description: "A clone of YouTube with search and video playback features.",
-    };
-  } else if (githubUrl === SWIGGY_STORE_GITHUB_LINK) {
-    return {
-      title: "Swiggy Store",
-      description: "An online food delivery application inspired by Swiggy.",
-    };
+  switch (githubUrl) {
+    case DEVTINDER_GITHUB_LINK:
+      return {
+        title: "Dev Tinder",
+        description: "A Tinder-inspired app for developers to connect.",
+        liveUrl: null,
+      };
+    case SWIGGY_STORE_GITHUB_LINK:
+      return {
+        title: "Swiggy Store",
+        description: "A clone of Swiggy's core features with React.",
+        liveUrl: null,
+      };
+    case NETFLIX_GEMINI:
+      return {
+        title: "Netflix Gemini",
+        description:
+          "A Netflix-inspired streaming platform with Gemini integration.",
+        liveUrl: NETFLIX_GEMINI_LIVE_URL,
+      };
+    case YOUTUBE_APP_GITHUB_LINK:
+      return {
+        title: "YouTube App",
+        description: "A YouTube clone built with React and Redux.",
+        liveUrl: YOUTUBE_APP_LIVE_URL,
+      };
+    default:
+      return {
+        title: "Project",
+        description: "No description available.",
+        liveUrl: null,
+      };
   }
-  return {
-    title: "Unknown Project",
-    description: "Description not available.",
-  };
 };
 
 export const Projects = () => {
@@ -61,7 +71,10 @@ export const Projects = () => {
       imgUrl: projImg1,
       githubUrl: SWIGGY_STORE_GITHUB_LINK,
     },
-  ];
+  ].map((project) => ({
+    ...project,
+    ...getProjectDetails(project.githubUrl),
+  }));
 
   return (
     <section className="project" id="projects">
@@ -77,8 +90,8 @@ export const Projects = () => {
                 >
                   <h2>Projects</h2>
                   <p>
-                    Explore some of the projects I have worked on, showcasing my
-                    skills in design, development, and implementation.
+                    Explore a variety of projects showcasing development skills,
+                    creativity, and functionality.
                   </p>
                   <Tab.Container id="projects-tabs" defaultActiveKey="first">
                     <Nav
@@ -87,13 +100,13 @@ export const Projects = () => {
                       id="pills-tab"
                     >
                       <Nav.Item>
-                        <Nav.Link eventKey="first">Tab 1</Nav.Link>
+                        <Nav.Link eventKey="first">All Projects</Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
-                        <Nav.Link eventKey="second">Tab 2</Nav.Link>
+                        <Nav.Link eventKey="second">In Progress</Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
-                        <Nav.Link eventKey="third">Tab 3</Nav.Link>
+                        <Nav.Link eventKey="third">Completed</Nav.Link>
                       </Nav.Item>
                     </Nav>
                     <Tab.Content
@@ -104,39 +117,18 @@ export const Projects = () => {
                     >
                       <Tab.Pane eventKey="first">
                         <Row>
-                          {projects.map((project, index) => {
-                            const { title, description } = getProjectDetails(
-                              project.githubUrl
-                            );
-                            return (
-                              <ProjectCard
-                                key={index}
-                                title={title}
-                                description={description}
-                                imgUrl={project.imgUrl}
-                                githubUrl={project.githubUrl}
-                              />
-                            );
-                          })}
+                          {projects.map((project, index) => (
+                            <ProjectCard key={index} {...project} />
+                          ))}
                         </Row>
                       </Tab.Pane>
-                      <Tab.Pane eventKey="section">
+                      <Tab.Pane eventKey="second">
                         <p>
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Cumque quam, quod neque provident velit, rem
-                          explicabo excepturi id illo molestiae blanditiis,
-                          eligendi dicta officiis asperiores delectus quasi
-                          inventore debitis quo.
+                          Projects currently under development will appear here.
                         </p>
                       </Tab.Pane>
                       <Tab.Pane eventKey="third">
-                        <p>
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Cumque quam, quod neque provident velit, rem
-                          explicabo excepturi id illo molestiae blanditiis,
-                          eligendi dicta officiis asperiores delectus quasi
-                          inventore debitis quo.
-                        </p>
+                        <p>Completed projects showcasing diverse skills.</p>
                       </Tab.Pane>
                     </Tab.Content>
                   </Tab.Container>
@@ -146,7 +138,11 @@ export const Projects = () => {
           </Col>
         </Row>
       </Container>
-      <img className="background-image-right" src={colorSharp2}></img>
+      <img
+        className="background-image-right"
+        src={colorSharp2}
+        alt="Background"
+      />
     </section>
   );
 };

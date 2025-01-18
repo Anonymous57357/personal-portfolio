@@ -651,3 +651,19 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   color: #ffcc33;
   text-decoration: underline;
 }
+
+/* live-url-style */
+
+.live-link {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 14px;
+  color: #28a745;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.live-link:hover {
+  color: #1c7c31;
+  text-decoration: underline;
+}
