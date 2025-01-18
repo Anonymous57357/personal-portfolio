@@ -22,7 +22,7 @@ export const NavBar = () => {
       return () => window.removeEventListener("scroll", onScroll);
     };
   }, []);
-  
+
   const onUpdateActiveLink = (value) => {
     setActiveLink(value);
   };
@@ -67,13 +67,21 @@ export const NavBar = () => {
           </Nav>
           <span className="navbar-text">
             <div className="social-icon">
-              <a href="#">
+              <a
+                href="https://www.linkedin.com/feed/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img src={navIcon1} alt="navIcon1" />
               </a>
-              <a href="#">
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img src={navIcon2} alt="navIcon2" />
               </a>
-              <a href="#">
+              <a href="#" target="_blank" rel="noopener noreferrer">
                 <img src={navIcon3} alt="navIcon3" />
               </a>
             </div>
