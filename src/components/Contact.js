@@ -14,7 +14,8 @@ export const Contact = () => {
   };
   const [formDetails, setFormDetails] = useState(formInitialDetails);
   const [buttonText, setButtonText] = useState("Send");
-  const [status, setStatus] = useState({});
+  const [statusMessages, setStatusMessages] = useState([]); // Track multiple messages
+  const [messageType, setMessageType] = useState(""); // Track message type ("success" or "error")
 
   const onFormUpdate = (category, value) => {
     setFormDetails({
@@ -26,6 +27,7 @@ export const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonText("Sending...");
+
     let response = await fetch("http://localhost:5000/contact", {
       method: "POST",
       headers: {
@@ -33,16 +35,23 @@ export const Contact = () => {
       },
       body: JSON.stringify(formDetails),
     });
+
     setButtonText("Send");
+
     let result = await response.json();
-    setFormDetails(formInitialDetails);
-    if (result.code == 200) {
-      setStatus({ succes: true, message: "Message sent successfully" });
+
+    if (response.status === 400) {
+      // Handle validation errors
+      const errorMessages = result.errors.map((err) => `${err.msg}`);
+      setStatusMessages(errorMessages);
+      setMessageType("error");
+    } else if (response.status === 200) {
+      setFormDetails(formInitialDetails);
+      setStatusMessages(["Message sent successfully"]);
+      setMessageType("success");
     } else {
-      setStatus({
-        succes: false,
-        message: "Something went wrong, please try again later.",
-      });
+      setStatusMessages(["Something went wrong, please try again later."]);
+      setMessageType("error");
     }
   };
 
@@ -87,7 +96,7 @@ export const Contact = () => {
                       <Col size={12} sm={6} className="px-1">
                         <input
                           type="text"
-                          value={formDetails.lasttName}
+                          value={formDetails.lastName}
                           placeholder="Last Name"
                           onChange={(e) =>
                             onFormUpdate("lastName", e.target.value)
@@ -127,15 +136,22 @@ export const Contact = () => {
                           <span>{buttonText}</span>
                         </button>
                       </Col>
-                      {status.message && (
+                      {statusMessages.length > 0 && (
                         <Col>
-                          <p
-                            className={
-                              status.success === false ? "danger" : "success"
-                            }
-                          >
-                            {status.message}
-                          </p>
+                          {statusMessages.map((message, index) => (
+                            <p
+                              key={index}
+                              style={{
+                                fontSize: "18px", // Larger font size for better visibility
+                                fontWeight: "bold",
+                                color:
+                                  messageType === "success" ? "green" : "red", // Dynamic color
+                                margin: "5px 0",
+                              }}
+                            >
+                              {message}
+                            </p>
+                          ))}
                         </Col>
                       )}
                     </Row>
