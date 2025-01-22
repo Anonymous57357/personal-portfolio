@@ -14,6 +14,8 @@ import {
   YOUTUBE_APP_GITHUB_LINK,
   NETFLIX_GEMINI_LIVE_URL,
   YOUTUBE_APP_LIVE_URL,
+  DEVTINDER_LIVE_URL,
+  SWIGGY_STORE_LIVE_URL,
 } from "./constants";
 
 // Generate title, description, and live URL based on GitHub URL
@@ -23,13 +25,13 @@ const getProjectDetails = (githubUrl) => {
       return {
         title: "Dev Tinder",
         description: "A Tinder-inspired app for developers to connect.",
-        liveUrl: null,
+        liveUrl: DEVTINDER_LIVE_URL,
       };
     case SWIGGY_STORE_GITHUB_LINK:
       return {
         title: "Swiggy Store",
         description: "A clone of Swiggy's core features with React.",
-        liveUrl: null,
+        liveUrl: SWIGGY_STORE_LIVE_URL,
       };
     case NETFLIX_GEMINI:
       return {

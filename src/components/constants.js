@@ -12,7 +12,7 @@ export const NETFLIX_GEMINI = "https://github.com/Anonymous57357/netfilx-gpt";
 export const DEVTINDER_LIVE_URL = "";
 
 export const SWIGGY_STORE_LIVE_URL =
-  "https://unrivaled-blancmange-8ed1d1.netlify.app/";
+  "https://delicate-arithmetic-f43335.netlify.app/";
 
 export const YOUTUBE_APP_LIVE_URL = "https://youtubesimulator.netlify.app/";
 
