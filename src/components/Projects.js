@@ -8,7 +8,7 @@ import "animate.css";
 import TrackVisibility from "react-on-screen";
 
 import {
-  DEVTINDER_GITHUB_LINK,
+  DEVTINDER_FRONTEND_GITHUB_LINK,
   SWIGGY_STORE_GITHUB_LINK,
   NETFLIX_GEMINI,
   YOUTUBE_APP_GITHUB_LINK,
@@ -21,7 +21,7 @@ import {
 // Generate title, description, and live URL based on GitHub URL
 const getProjectDetails = (githubUrl) => {
   switch (githubUrl) {
-    case DEVTINDER_GITHUB_LINK:
+    case DEVTINDER_FRONTEND_GITHUB_LINK:
       return {
         title: "Dev Tinder",
         description: "A Tinder-inspired app for developers to connect.",
@@ -59,7 +59,7 @@ export const Projects = () => {
   const projects = [
     {
       imgUrl: projImg1,
-      githubUrl: DEVTINDER_GITHUB_LINK,
+      githubUrl: DEVTINDER_FRONTEND_GITHUB_LINK,
     },
     {
       imgUrl: projImg2,
@@ -136,7 +136,7 @@ export const Projects = () => {
                   </Tab.Container>
                 </div>
               )}
-            </TrackVisibility>
+            </TrackVisibility>  
           </Col>
         </Row>
       </Container>
