@@ -3,8 +3,6 @@ import meter2 from "../assets/img/meter2.svg";
 import meter3 from "../assets/img/meter3.svg";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import arrow1 from "../assets/img/arrow1.svg";
-import arrow2 from "../assets/img/arrow2.svg";
 import colorSharp from "../assets/img/color-sharp.png";
 
 export const Skills = () => {
@@ -36,9 +34,14 @@ export const Skills = () => {
             <div className="skill-bx wow zoomIn">
               <h2>Skills</h2>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.<br></br> Lorem Ipsum has been the industry's standard
-                dummy text.
+                As a dedicated software developer, I have honed a diverse set of
+                skills that empower me to create impactful web applications.
+                From mastering front-end technologies like React.js and Tailwind
+                CSS to building robust back-end solutions using Node.js and
+                Express.js, I thrive in crafting efficient, scalable, and
+                user-friendly solutions. Additionally, I have experience in
+                database management, API development, and deploying projects
+                with CI/CD pipelines to deliver seamless applications.
               </p>
               <Carousel
                 responsive={responsive}
@@ -46,52 +49,51 @@ export const Skills = () => {
                 className="owl-carousel owl-theme skill-slider"
               >
                 <div className="item">
-                  <img src={meter1} alt="Image" />
+                  <img src={meter1} alt="Web Development Skill Meter" />
                   <h5>Web Development</h5>
                 </div>
                 <div className="item">
-                  <img src={meter2} alt="Image" />
+                  <img src={meter2} alt="React.js Skill Meter" />
                   <h5>React.js</h5>
                 </div>
                 <div className="item">
-                  <img src={meter3} alt="Image" />
+                  <img src={meter3} alt="Redux Toolkit Skill Meter" />
                   <h5>Redux Toolkit</h5>
                 </div>
                 <div className="item">
-                  <img src={meter1} alt="Image" />
+                  <img src={meter1} alt="Node.js Skill Meter" />
                   <h5>Node.js</h5>
                 </div>
                 <div className="item">
-                  <img src={meter1} alt="Image" />
+                  <img src={meter1} alt="Express.js Skill Meter" />
                   <h5>Express.js</h5>
                 </div>
                 <div className="item">
-                  <img src={meter2} alt="Image" />
+                  <img src={meter2} alt="MongoDB Skill Meter" />
                   <h5>MongoDB (NoSQL Database)</h5>
                 </div>
                 <div className="item">
-                  <img src={meter2} alt="Image" />
+                  <img src={meter2} alt="MySQL and PostgreSQL Skill Meter" />
                   <h5>MySQL & PostgreSQL (SQL Databases)</h5>
                 </div>
-
                 <div className="item">
-                  <img src={meter3} alt="Image" />
+                  <img src={meter3} alt="Tailwind CSS Skill Meter" />
                   <h5>Tailwind CSS (Utility-First Framework)</h5>
                 </div>
                 <div className="item">
-                  <img src={meter1} alt="Image" />
+                  <img src={meter1} alt="Git Version Control Skill Meter" />
                   <h5>Git (Version Control)</h5>
                 </div>
                 <div className="item">
-                  <img src={meter2} alt="Image" />
+                  <img src={meter2} alt="API Development Skill Meter" />
                   <h5>API Development (REST)</h5>
                 </div>
                 <div className="item">
-                  <img src={meter3} alt="Image" />
+                  <img src={meter3} alt="Deployment and CI/CD Skill Meter" />
                   <h5>Deployment & CI/CD (Netlify, Render)</h5>
                 </div>
                 <div className="item">
-                  <img src={meter1} alt="Image" />
+                  <img src={meter1} alt="Unit Testing Skill Meter" />
                   <h5>Unit Testing (Jest)</h5>
                 </div>
               </Carousel>
@@ -99,7 +101,7 @@ export const Skills = () => {
           </div>
         </div>
       </div>
-      <img className="background-image-left" src={colorSharp} alt="Image" />
+      <img className="background-image-left" src={colorSharp} alt="" />
     </section>
   );
 };
