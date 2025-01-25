@@ -13,21 +13,13 @@ export const NavBar = () => {
 
   useEffect(() => {
     const onScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", onScroll);
-
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const onUpdateActiveLink = (value) => {
-    setActiveLink(value);
-  };
+  const onUpdateActiveLink = (value) => setActiveLink(value);
 
   return (
     <Router>
@@ -78,21 +70,28 @@ export const NavBar = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src={navIcon1} alt="navIcon1" />
+                  <img src={navIcon1} alt="LinkedIn" />
                 </a>
                 <a
                   href="https://www.facebook.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src={navIcon2} alt="navIcon2" />
+                  <img src={navIcon2} alt="Facebook" />
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer">
-                  <img src={navIcon3} alt="navIcon3" />
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={navIcon3} alt="Instagram" />
                 </a>
               </div>
               <HashLink to="#connect">
-                <button className="vvd">
+                <button
+                  className="vvd"
+                  aria-label="Scroll to the connect section"
+                >
                   <span>Let’s Connect</span>
                 </button>
               </HashLink>

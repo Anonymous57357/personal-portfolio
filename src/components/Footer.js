@@ -16,14 +16,32 @@ export const Footer = () => {
           </Col>
           <Col size={12} sm={6} className="text-center text-sm-end">
             <div className="social-icon">
-              <a href="#"><img src={navIcon1} alt="Icon" /></a>
-              <a href="#"><img src={navIcon2} alt="Icon" /></a>
-              <a href="#"><img src={navIcon3} alt="Icon" /></a>
+              <a 
+                href="https://www.linkedin.com/feed/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <img src={navIcon1} alt="LinkedIn Icon" />
+              </a>
+              <a 
+                href="https://www.facebook.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <img src={navIcon2} alt="Facebook Icon" />
+              </a>
+              <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <img src={navIcon3} alt="Instagram Icon" />
+              </a>
             </div>
             <p>Copyright 2022. All Rights Reserved</p>
           </Col>
         </Row>
       </Container>
     </footer>
-  )
-}
+  );
+};
