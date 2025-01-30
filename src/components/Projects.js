@@ -78,6 +78,14 @@ export const Projects = () => {
     ...getProjectDetails(project.githubUrl),
   }));
 
+  const completedProjects = projects.filter(
+    (project) => project.githubUrl !== DEVTINDER_FRONTEND_GITHUB_LINK
+  );
+
+  const inProgressProjects = projects.filter(
+    (project) => project.githubUrl === DEVTINDER_FRONTEND_GITHUB_LINK
+  );
+
   return (
     <section className="project" id="projects">
       <Container>
@@ -125,18 +133,24 @@ export const Projects = () => {
                         </Row>
                       </Tab.Pane>
                       <Tab.Pane eventKey="second">
-                        <p>
-                          Projects currently under development will appear here.
-                        </p>
+                        <Row>
+                          {inProgressProjects.map((project, index) => (
+                            <ProjectCard key={index} {...project} />
+                          ))}
+                        </Row>
                       </Tab.Pane>
                       <Tab.Pane eventKey="third">
-                        <p>Completed projects showcasing diverse skills.</p>
+                        <Row>
+                          {completedProjects.map((project, index) => (
+                            <ProjectCard key={index} {...project} />
+                          ))}
+                        </Row>
                       </Tab.Pane>
                     </Tab.Content>
                   </Tab.Container>
                 </div>
               )}
-            </TrackVisibility>  
+            </TrackVisibility>
           </Col>
         </Row>
       </Container>

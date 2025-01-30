@@ -9,11 +9,10 @@ export const SWIGGY_STORE_GITHUB_LINK =
 
 export const YOUTUBE_APP_GITHUB_LINK =
   "https://github.com/Anonymous57357/namste-youtube/tree/main/namaste-youtube";
-  
+
 export const NETFLIX_GEMINI = "https://github.com/Anonymous57357/netfilx-gpt";
 
-export const DEVTINDER_LIVE_URL =
-  "https://illustrious-kataifi-18729c.netlify.app/";
+export const DEVTINDER_LIVE_URL = "http://13.60.215.91/";
 
 export const SWIGGY_STORE_LIVE_URL =
   "https://delicate-arithmetic-f43335.netlify.app/";
